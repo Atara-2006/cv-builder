@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * הסבר בחירת סוג טופס (דרישת חובה):
+ * הסבר בחירת סוג טופס :
  * קומפוננטה זו ממומשת כ-Reactive Form כדי לאפשר ניהול דינמי של מערכים (השכלה וקורסים)
- * ומימוש ולידציות מורכבות בין שדות[cite: 84, 85].
+ * ומימוש ולידציות מורכבות בין שדות.
  */
 @Component({
   selector: 'app-education-form',
