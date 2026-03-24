@@ -1,0 +1,103 @@
+/* מבנה העמוד המרכזי */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* צד ה-Preview מעט רחב יותר כדי שיראה כמו דף A4 */
+  gap: 30px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 30px;
+  direction: rtl;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+/* עמודת עריכת הטפסים */
+.editor-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* עמודת התצוגה המקדימה - נשארת קבועה בזמן גלילה */
+.preview-column {
+  position: sticky;
+  top: 30px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+/* עיצוב כרטיסיות הטפסים בתוך ה-Editor */
+app-personal-form, app-education-form {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  border: 1px solid #e1e4e8;
+}
+
+/* עיצוב דף קורות החיים (הנייר הלבן) */
+.cv-paper {
+  background: white;
+  width: 100%;
+  max-width: 210mm; /* רוחב A4 סטנדרטי */
+  min-height: 297mm;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+/* כותרות בתוך הטפסים */
+h3 {
+  color: #1a73e8;
+  margin-top: 0;
+  border-bottom: 2px solid #e8f0fe;
+  padding-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+/* שדות קלט גלובליים */
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+  outline: none;
+}
+
+/* כפתורים */
+button {
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-add {
+  background-color: #34a853;
+  color: white;
+  border: none;
+  width: 100%;
+}
+
+.btn-add:hover { background-color: #2d8e47; }
+
+/* התאמה למסכים קטנים (טאבלטים וניידים) */
+@media (max-width: 1100px) {
+  .main-layout {
+    grid-template-columns: 1fr; /* עובר לטור אחד במקום שניים */
+  }
+  .preview-column {
+    position: static;
+  }
+}

@@ -1,0 +1,67 @@
+<div class="form-container" [formGroup]="educationForm">
+  <h2 class="title">פרטי השכלה</h2>
+
+  <div formArrayName="educationItems">
+    <div *ngFor="let item of educationItems.controls; let i = index" [formGroupName]="i" class="edu-card">
+      
+      <div class="card-header">
+        <h3>השכלה #{{i + 1}}</h3>
+        <button type="button" class="btn-remove" (click)="removeEducation(i)" *ngIf="educationItems.length > 1">מחק פריט</button>
+      </div>
+
+      <div class="grid-form">
+        <input formControlName="institution" placeholder="מוסד לימודים*">
+        
+        <select formControlName="degree">
+          <option value="">סוג תואר*</option>
+          <option value="תעודה">תעודה</option>
+          <option value="תואר ראשון">תואר ראשון</option>
+          <option value="תואר שני">תואר שני</option>
+          <option value="דוקטורט">דוקטורט</option>
+        </select>
+
+        <input formControlName="field" placeholder="תחום לימודים*">
+        
+        <div class="date-group">
+          <label>תאריך התחלה*: <input type="date" formControlName="startDate"></label>
+          <label class="checkbox-label">
+            <input type="checkbox" formControlName="isCurrent"> לומד כרגע
+          </label>
+          <label *ngIf="!item.get('isCurrent')?.value">
+            תאריך סיום*: <input type="date" formControlName="endDate">
+          </label>
+        </div>
+
+        <p class="error-msg" *ngIf="item.errors?.['dateInvalid'] && item.get('endDate')?.touched">
+          תאריך הסיום חייב להיות אחרי תאריך ההתחלה
+        </p>
+
+        <div class="score-group">
+          <div class="input-with-error">
+            <input type="number" formControlName="average" placeholder="ממוצע (0-100)*">
+            <small class="error" *ngIf="item.get('average')?.invalid && item.get('average')?.touched">טווח 0-100 בלבד</small>
+          </div>
+          
+          <label class="checkbox-label">
+            <input type="checkbox" formControlName="isHonors"> הצטיינות
+          </label>
+        </div>
+
+        <div class="courses-section">
+          <h4>קורסים*</h4>
+          <div class="course-add-row">
+            <input #cInput placeholder="שם הקורס">
+            <button type="button" (click)="addCourse(i, cInput)">הוסף</button>
+          </div>
+          <ul class="course-list">
+            <li *ngFor="let c of getCourses(i).controls; let j = index">
+              {{c.value}} <span (click)="removeCourse(i, j)" class="remove-x">x</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="btn-add-edu" (click)="addEducation()">+ הוסף השכלה</button>
+</div>

@@ -1,0 +1,49 @@
+<div class="cv-paper">
+  <div class="cv-header">
+    <h1>{{ data.personal?.fullName || 'שם מלא' }}</h1>
+    <p>
+      <span *ngIf="data.personal?.email">{{ data.personal.email }}</span>
+      <span *ngIf="data.personal?.email && data.personal?.phone"> | </span>
+      <span *ngIf="data.personal?.phone">{{ data.personal.phone }}</span>
+    </p>
+  </div>
+
+  <div class="cv-section" *ngIf="data.personal?.summary">
+    <h3 class="section-title">פרופיל אישי</h3>
+    <p class="summary-text">{{ data.personal.summary }}</p>
+  </div>
+
+  <div class="cv-section" *ngIf="data.education?.length > 0">
+    <h3 class="section-title">השכלה</h3>
+    
+    <div *ngFor="let edu of data.education" class="preview-edu-item">
+      <div class="edu-top">
+        <div class="inst-degree">
+          <strong>{{ edu.institution }}</strong>
+          <span *ngIf="edu.degree"> - {{ edu.degree }}</span>
+          <span class="excellence-badge" *ngIf="edu.isHonors"> 🏆 הצטיינות </span>
+        </div>
+        <span class="dates">
+          {{ edu.startDate | date:'MM/yyyy' }} - 
+          {{ edu.isCurrent ? 'לומדת כרגע' : (edu.endDate | date:'MM/yyyy') }} 
+        </span>
+      </div>
+      
+      <p class="field-details">
+        {{ edu.field }} 
+        <span *ngIf="edu.average"> | ממוצע: {{ edu.average }}</span>
+      </p>
+      
+      <p class="edu-desc" *ngIf="edu.description">{{ edu.description }}</p>
+      
+      <div class="preview-courses" *ngIf="edu.courses?.length > 0">
+        <strong>קורסים מרכזיים:</strong>
+        <span class="course-tags">{{ edu.courses.join(', ') }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-warning" *ngIf="!data.education || data.education.length === 0">
+    <small>* חובה להוסיף לפחות פריט השכלה אחד להגשה </small>
+  </div>
+</div>

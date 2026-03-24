@@ -1,0 +1,10 @@
+<div class="main-layout">
+  <div class="editor-column">
+    <app-personal-form (personalUpdate)="updatePersonalDetails($any($event))"></app-personal-form>
+    <app-education-form (educationUpdate)="updateEducationDetails($any($event))"></app-education-form>
+  </div>
+
+  <div class="preview-column">
+    <app-cv-preview [data]="cvData"></app-cv-preview>
+  </div>
+</div>

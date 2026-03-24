@@ -1,0 +1,165 @@
+/* הגדרות כלליות וגופנים */
+body {
+  margin: 0;
+  padding: 0;
+  direction: rtl; /* תמיכה בעברית */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f9;
+  color: #333;
+}
+
+/* חלוקת המסך לשניים (דרישת מבנה האפליקציה) */
+.app-container {
+  display: flex;
+  height: 100vh;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* צד הטפסים - גלילה עצמאית */
+.forms-column {
+  flex: 1;
+  overflow-y: auto;
+  padding-left: 10px;
+}
+
+/* צד התצוגה המקדימה - קבוע במקום */
+.preview-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: sticky;
+  top: 20px;
+}
+
+/* עיצוב כרטיסיות הטפסים */
+.form-card, .form-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  border: 1px solid #e1e8ed;
+}
+
+h3, h4 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 8px;
+  margin-top: 0;
+}
+
+/* עיצוב שדות קלט (Inputs) */
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #dcdfe6;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #3498db;
+  outline: none;
+  background-color: #fdfdfd;
+}
+
+/* עיצוב כפתורים */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.btn-add-main, .btn-add-edu {
+  background-color: #27ae60;
+  color: white;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-remove, .btn-delete {
+  background-color: #e74c3c;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+/* עיצוב דף קורות החיים (ה-Preview) */
+.cv-paper {
+  background: white;
+  width: 210mm; /* גודל A4 */
+  min-height: 297mm;
+  padding: 50px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transform: scale(0.85); /* התאמה למסך */
+  transform-origin: top center;
+  box-sizing: border-box;
+}
+
+.cv-header {
+  text-align: center;
+  border-bottom: 2px solid #2c3e50;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.cv-header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #2c3e50;
+}
+
+.section-title {
+  color: #3498db;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-top: 25px;
+  border-bottom: 1px solid #eee;
+}
+
+/* הצגת קורסים כ"צ'יפים" */
+.course-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.course-list li {
+  background: #ecf0f1;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.remove-x {
+  margin-right: 8px;
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+/* התראות שגיאה (ולידציות) */
+.error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.excellence-badge {
+  color: #f1c40f;
+  font-weight: bold;
+}

@@ -1,0 +1,54 @@
+<div class="form-container">
+  <h3>פרטים אישיים</h3>
+  
+  <form #personalForm="ngForm">
+    <div class="field">
+      <label>שם מלא*:</label>
+      <input 
+        [(ngModel)]="personalDetails.fullName" 
+        (ngModelChange)="onUpdate()" 
+        name="fullName" 
+        required 
+        placeholder="עטרה שטיגליץ">
+    </div>
+
+    <div class="field">
+      <label>אימייל*:</label>
+      <input 
+        [(ngModel)]="personalDetails.email" 
+        (ngModelChange)="onUpdate()" 
+        name="email" 
+        type="email" 
+        required 
+        email 
+        placeholder="example@gmail.com">
+      <small *ngIf="personalForm.controls['email']?.invalid && personalForm.controls['email']?.touched" class="error">
+        אימייל לא תקין 
+      </small>
+    </div>
+
+    <div class="field">
+      <label>טלפון* (ספרות בלבד):</label>
+      <input 
+        [(ngModel)]="personalDetails.phone" 
+        (ngModelChange)="onUpdate()" 
+        name="phone" 
+        required 
+        pattern="[0-9]*" 
+        placeholder="0500000000">
+      <small *ngIf="personalForm.controls['phone']?.invalid && personalForm.controls['phone']?.touched" class="error">
+        טלפון חייב להכיל ספרות בלבד 
+      </small>
+    </div>
+
+    <div class="field">
+      <label>תיאור קצר*:</label>
+      <textarea 
+        [(ngModel)]="personalDetails.summary" 
+        (ngModelChange)="onUpdate()" 
+        name="summary" 
+        required 
+        placeholder="ספרי קצת על עצמך..."></textarea>
+    </div>
+  </form>
+</div>

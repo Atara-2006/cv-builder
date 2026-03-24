@@ -1,0 +1,51 @@
+.cv-document {
+  background: white;
+  padding: 40px;
+  min-height: 297mm; /* גובה A4 */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  direction: rtl;
+  font-family: Arial, sans-serif;
+}
+
+.cv-header {
+  text-align: center;
+  border-bottom: 2px solid #333;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.name-title {
+  font-size: 28px;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.contact-bar {
+  color: #7f8c8d;
+  margin-top: 10px;
+}
+
+.section-title {
+  font-size: 20px;
+  color: #2980b9;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  margin-top: 30px;
+}
+
+.edu-item {
+  margin-bottom: 20px;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.courses-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-right: 20px;
+  margin-top: 5px;
+}
